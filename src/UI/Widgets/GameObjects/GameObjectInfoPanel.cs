@@ -372,7 +372,7 @@ namespace UnityExplorer.UI.Widgets
             UIFactory.SetLayoutElement(thirdrow, minHeight: 25, flexibleWidth: 9999);
 
             // Inspect in Explorer button
-            ButtonRef explorerBtn = UIFactory.CreateButton(thirdrow, "ExploreBtn", "Show in Explorer", new Color(0.15f, 0.15f, 0.15f));
+            ButtonRef explorerBtn = UIFactory.CreateButton(thirdrow, "ExploreBtn", "在浏览器中显示", new Color(0.15f, 0.15f, 0.15f));
             UIFactory.SetLayoutElement(explorerBtn.Component.gameObject, minHeight: 25, minWidth: 100);
             explorerBtn.ButtonText.fontSize = 12;
             explorerBtn.OnClick += OnExploreButtonClicked;

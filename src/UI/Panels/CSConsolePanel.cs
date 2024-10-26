@@ -8,7 +8,7 @@ namespace UnityExplorer.UI.Panels
 {
     public class CSConsolePanel : UEPanel
     {
-        public override string Name => "C# Console";
+        public override string Name => "C# 控制台";
         public override UIManager.Panels PanelType => UIManager.Panels.CSConsole;
 
         public override int MinWidth => 750;
@@ -70,7 +70,7 @@ namespace UnityExplorer.UI.Panels
 
             // Buttons
 
-            ButtonRef compileButton = UIFactory.CreateButton(toolsRow, "CompileButton", "Compile", new Color(0.33f, 0.5f, 0.33f));
+            ButtonRef compileButton = UIFactory.CreateButton(toolsRow, "CompileButton", "编译", new Color(0.33f, 0.5f, 0.33f));
             UIFactory.SetLayoutElement(compileButton.Component.gameObject, minHeight: 28, minWidth: 130, flexibleHeight: 0);
             compileButton.ButtonText.fontSize = 15;
             compileButton.OnClick += () => { OnCompileClicked?.Invoke(); };
@@ -92,7 +92,7 @@ namespace UnityExplorer.UI.Panels
             GameObject ctrlRToggleObj = UIFactory.CreateToggle(toolsRow, "CtrlRToggle", out Toggle CtrlRToggle, out Text ctrlRToggleText);
             UIFactory.SetLayoutElement(ctrlRToggleObj, minWidth: 150, flexibleWidth: 0, minHeight: 25);
             ctrlRToggleText.alignment = TextAnchor.UpperLeft;
-            ctrlRToggleText.text = "Compile on Ctrl+R";
+            ctrlRToggleText.text = "使用Ctrl+R编译";
             CtrlRToggle.onValueChanged.AddListener((bool val) => { OnCtrlRToggled?.Invoke(val); });
 
             // Enable Suggestions toggle
@@ -100,7 +100,7 @@ namespace UnityExplorer.UI.Panels
             GameObject suggestToggleObj = UIFactory.CreateToggle(toolsRow, "SuggestionToggle", out Toggle SuggestionsToggle, out Text suggestToggleText);
             UIFactory.SetLayoutElement(suggestToggleObj, minWidth: 120, flexibleWidth: 0, minHeight: 25);
             suggestToggleText.alignment = TextAnchor.UpperLeft;
-            suggestToggleText.text = "Suggestions";
+            suggestToggleText.text = "建议";
             SuggestionsToggle.onValueChanged.AddListener((bool val) => { OnSuggestionsToggled?.Invoke(val); });
 
             // Enable Auto-indent toggle
@@ -108,7 +108,7 @@ namespace UnityExplorer.UI.Panels
             GameObject autoIndentToggleObj = UIFactory.CreateToggle(toolsRow, "IndentToggle", out Toggle AutoIndentToggle, out Text autoIndentToggleText);
             UIFactory.SetLayoutElement(autoIndentToggleObj, minWidth: 120, flexibleWidth: 0, minHeight: 25);
             autoIndentToggleText.alignment = TextAnchor.UpperLeft;
-            autoIndentToggleText.text = "Auto-indent";
+            autoIndentToggleText.text = "自动缩进";
             AutoIndentToggle.onValueChanged.AddListener((bool val) => { OnAutoIndentToggled?.Invoke(val); });
 
             // Console Input

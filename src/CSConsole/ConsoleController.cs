@@ -646,7 +646,7 @@ Doorstop example:
         {
             Dropdown drop = Panel.HelpDropdown;
 
-            helpDict.Add("Help", "");
+            helpDict.Add("帮助", "");
             helpDict.Add("Usings", HELP_USINGS);
             helpDict.Add("REPL", HELP_REPL);
             helpDict.Add("Classes", HELP_CLASSES);
@@ -669,15 +669,15 @@ Doorstop example:
         }
 
 
-        internal const string STARTUP_TEXT = @"<color=#5d8556>// Welcome to the UnityExplorer C# Console!
+        internal const string STARTUP_TEXT = @"<color=#5d8556>// 欢迎来到UnityExplorer C#控制台!
 
-// It is recommended to use the Log panel (or a console log window) while using this tool.
-// Use the Help dropdown to see detailed examples of how to use the console.
+// 建议在使用此工具时使用“日志”面板（或控制台日志窗口）.
+// 使用“帮助”下拉菜单查看如何使用控制台的详细示例.
 
-// To execute a script automatically on startup, put the script at 'sinai-dev-UnityExplorer\Scripts\startup.cs'</color>";
+//要在启动时自动执行脚本，请将脚本放在“sinai dev UnityExplorer\Scripts\startup.cs”</color>";
 
-        internal const string HELP_USINGS = @"// You can add a using directive to any namespace, but you must compile for it to take effect.
-// It will remain in effect until you Reset the console.
+        internal const string HELP_USINGS = @"// 您可以向任何命名空间添加using指令，但必须编译才能使其生效.
+// 它将一直有效，直到您重置控制台.
 using UnityEngine.UI;
 
 // To see your current usings, use the ""GetUsing();"" helper.

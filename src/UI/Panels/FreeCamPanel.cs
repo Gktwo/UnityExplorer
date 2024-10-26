@@ -16,7 +16,7 @@ namespace UnityExplorer.UI.Panels
         {
         }
 
-        public override string Name => "Freecam";
+        public override string Name => "自由相机";
         public override UIManager.Panels PanelType => UIManager.Panels.Freecam;
         public override int MinWidth => 400;
         public override int MinHeight => 320;
@@ -192,25 +192,25 @@ namespace UnityExplorer.UI.Panels
 
             AddSpacer(5);
 
-            GameObject posRow = AddInputField("Position", "Freecam Pos:", "eg. 0 0 0", out positionInput, PositionInput_OnEndEdit);
+            GameObject posRow = AddInputField("Position", "相机坐标:", "eg. 0 0 0", out positionInput, PositionInput_OnEndEdit);
 
-            ButtonRef resetPosButton = UIFactory.CreateButton(posRow, "ResetButton", "Reset");
+            ButtonRef resetPosButton = UIFactory.CreateButton(posRow, "ResetButton", "重置");
             UIFactory.SetLayoutElement(resetPosButton.GameObject, minWidth: 70, minHeight: 25);
             resetPosButton.OnClick += OnResetPosButtonClicked;
 
             AddSpacer(5);
 
-            AddInputField("MoveSpeed", "Move Speed:", "Default: 1", out moveSpeedInput, MoveSpeedInput_OnEndEdit);
+            AddInputField("MoveSpeed", "移速:", "默认: 1", out moveSpeedInput, MoveSpeedInput_OnEndEdit);
             moveSpeedInput.Text = desiredMoveSpeed.ToString();
 
             AddSpacer(5);
 
             string instructions = @"Controls:
-- WASD / Arrows: Movement
-- Space / PgUp: Move up
-- LeftCtrl / PgDown: Move down
-- Right Mouse Button: Free look
-- Shift: Super speed";
+- WASD / 方向: 移动
+- Space / PgUp: 上
+- LeftCtrl / PgDown: 下
+- Right Mouse Button: 自由查看
+- Shift: 加速";
 
             Text instructionsText = UIFactory.CreateLabel(ContentRoot, "Instructions", instructions, TextAnchor.UpperLeft);
             UIFactory.SetLayoutElement(instructionsText.gameObject, flexibleWidth: 9999, flexibleHeight: 9999);
@@ -262,12 +262,12 @@ namespace UnityExplorer.UI.Panels
             if (inFreeCamMode)
             {
                 RuntimeHelper.SetColorBlockAuto(startStopButton.Component, new(0.4f, 0.2f, 0.2f));
-                startStopButton.ButtonText.text = "End Freecam";
+                startStopButton.ButtonText.text = "关闭";
             }
             else
             {
                 RuntimeHelper.SetColorBlockAuto(startStopButton.Component, new(0.2f, 0.4f, 0.2f));
-                startStopButton.ButtonText.text = "Begin Freecam";
+                startStopButton.ButtonText.text = "开启";
             }
         }
 

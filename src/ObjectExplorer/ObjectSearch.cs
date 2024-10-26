@@ -166,7 +166,7 @@ namespace UnityExplorer.ObjectExplorer
             GameObject contextGroup = UIFactory.CreateHorizontalGroup(uiRoot, "SearchContextRow", false, true, true, true, 2, new Vector4(2, 2, 2, 2));
             UIFactory.SetLayoutElement(contextGroup, minHeight: 25, flexibleHeight: 0);
 
-            Text contextLbl = UIFactory.CreateLabel(contextGroup, "SearchContextLabel", "Searching for:", TextAnchor.MiddleLeft);
+            Text contextLbl = UIFactory.CreateLabel(contextGroup, "SearchContextLabel", "正在搜索:", TextAnchor.MiddleLeft);
             UIFactory.SetLayoutElement(contextLbl.gameObject, minWidth: 110, flexibleWidth: 0);
 
             GameObject contextDropObj = UIFactory.CreateDropdown(contextGroup, "ContextDropdown", out Dropdown contextDrop, null, 14, OnContextDropdownChanged);
@@ -179,7 +179,7 @@ namespace UnityExplorer.ObjectExplorer
             classInputRow = UIFactory.CreateHorizontalGroup(uiRoot, "ClassRow", false, true, true, true, 2, new Vector4(2, 2, 2, 2));
             UIFactory.SetLayoutElement(classInputRow, minHeight: 25, flexibleHeight: 0);
 
-            Text unityClassLbl = UIFactory.CreateLabel(classInputRow, "ClassLabel", "Class filter:", TextAnchor.MiddleLeft);
+            Text unityClassLbl = UIFactory.CreateLabel(classInputRow, "ClassLabel", "Class 筛选器:", TextAnchor.MiddleLeft);
             UIFactory.SetLayoutElement(unityClassLbl.gameObject, minWidth: 110, flexibleWidth: 0);
 
             InputFieldRef classInputField = UIFactory.CreateInputField(classInputRow, "ClassInput", "...");
@@ -231,7 +231,7 @@ namespace UnityExplorer.ObjectExplorer
             nameInputRow = UIFactory.CreateHorizontalGroup(uiRoot, "NameRow", true, true, true, true, 2, new Vector4(2, 2, 2, 2));
             UIFactory.SetLayoutElement(nameInputRow, minHeight: 25, flexibleHeight: 0);
 
-            Text nameLbl = UIFactory.CreateLabel(nameInputRow, "NameFilterLabel", "Name contains:", TextAnchor.MiddleLeft);
+            Text nameLbl = UIFactory.CreateLabel(nameInputRow, "NameFilterLabel", "名称包含:", TextAnchor.MiddleLeft);
             UIFactory.SetLayoutElement(nameLbl.gameObject, minWidth: 110, flexibleWidth: 0);
 
             nameInputField = UIFactory.CreateInputField(nameInputRow, "NameFilterInput", "...");
@@ -239,7 +239,7 @@ namespace UnityExplorer.ObjectExplorer
 
             // Search button
 
-            ButtonRef searchButton = UIFactory.CreateButton(uiRoot, "SearchButton", "Search");
+            ButtonRef searchButton = UIFactory.CreateButton(uiRoot, "SearchButton", "查询");
             UIFactory.SetLayoutElement(searchButton.Component.gameObject, minHeight: 25, flexibleHeight: 0);
             searchButton.OnClick += DoSearch;
 
@@ -248,7 +248,7 @@ namespace UnityExplorer.ObjectExplorer
             GameObject resultsCountRow = UIFactory.CreateHorizontalGroup(uiRoot, "ResultsCountRow", true, true, true, true);
             UIFactory.SetLayoutElement(resultsCountRow, minHeight: 25, flexibleHeight: 0);
 
-            resultsLabel = UIFactory.CreateLabel(resultsCountRow, "ResultsLabel", "0 results", TextAnchor.MiddleCenter);
+            resultsLabel = UIFactory.CreateLabel(resultsCountRow, "ResultsLabel", "0 个结果", TextAnchor.MiddleCenter);
 
             // RESULTS SCROLL POOL
 

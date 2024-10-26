@@ -6,7 +6,7 @@ namespace UnityExplorer.UI.Panels
 {
     public class ObjectExplorerPanel : UEPanel
     {
-        public override string Name => "Object Explorer";
+        public override string Name => "对象浏览器";
         public override UIManager.Panels PanelType => UIManager.Panels.ObjectExplorer;
 
         public override int MinWidth => 350;
@@ -99,8 +99,8 @@ namespace UnityExplorer.UI.Panels
             tabPages.Add(ObjectSearch);
 
             // set up tabs
-            AddTabButton(tabGroup, "Scene Explorer");
-            AddTabButton(tabGroup, "Object Search");
+            AddTabButton(tabGroup, "场景浏览器");
+            AddTabButton(tabGroup, "对象搜索");
 
             // default active state: Active
             this.SetActive(true);

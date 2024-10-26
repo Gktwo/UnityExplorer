@@ -175,7 +175,7 @@ namespace UnityExplorer.ObjectExplorer
 
         public override void ConstructUI(GameObject content)
         {
-            uiRoot = UIFactory.CreateUIObject("SceneExplorer", content);
+            uiRoot = UIFactory.CreateUIObject("场景浏览器", content);
             UIFactory.SetLayoutGroup<VerticalLayoutGroup>(uiRoot, true, true, true, true, 0, 2, 2, 2, 2);
             UIFactory.SetLayoutElement(uiRoot, flexibleHeight: 9999);
 
@@ -189,7 +189,7 @@ namespace UnityExplorer.ObjectExplorer
             GameObject dropRow = UIFactory.CreateHorizontalGroup(toolbar, "DropdownRow", true, true, true, true, 5, default, new Color(1, 1, 1, 0));
             UIFactory.SetLayoutElement(dropRow, minHeight: 25, flexibleWidth: 9999);
 
-            Text dropLabel = UIFactory.CreateLabel(dropRow, "SelectorLabel", "Scene:", TextAnchor.MiddleLeft, Color.cyan, false, 15);
+            Text dropLabel = UIFactory.CreateLabel(dropRow, "SelectorLabel", "场景:", TextAnchor.MiddleLeft, Color.cyan, false, 15);
             UIFactory.SetLayoutElement(dropLabel.gameObject, minHeight: 25, minWidth: 60, flexibleWidth: 0);
 
             GameObject dropdownObj = UIFactory.CreateDropdown(dropRow, "SceneDropdown", out sceneDropdown, "<notset>", 13, OnSceneSelectionDropdownChanged);
@@ -205,7 +205,7 @@ namespace UnityExplorer.ObjectExplorer
             UIFactory.SetLayoutElement(filterRow, minHeight: 25, flexibleHeight: 0);
 
             //Filter input field
-            InputFieldRef inputField = UIFactory.CreateInputField(filterRow, "FilterInput", "Search and press enter...");
+            InputFieldRef inputField = UIFactory.CreateInputField(filterRow, "FilterInput", "按下Enter搜索...");
             inputField.Component.targetGraphic.color = new Color(0.2f, 0.2f, 0.2f);
             RuntimeHelper.SetColorBlock(inputField.Component, new Color(0.4f, 0.4f, 0.4f), new Color(0.2f, 0.2f, 0.2f),
                 new Color(0.08f, 0.08f, 0.08f));
@@ -218,13 +218,13 @@ namespace UnityExplorer.ObjectExplorer
             refreshRow = UIFactory.CreateHorizontalGroup(toolbar, "RefreshGroup", true, true, true, true, 2, new Vector4(2, 2, 2, 2));
             UIFactory.SetLayoutElement(refreshRow, minHeight: 30, flexibleHeight: 0);
 
-            ButtonRef refreshButton = UIFactory.CreateButton(refreshRow, "RefreshButton", "Update");
+            ButtonRef refreshButton = UIFactory.CreateButton(refreshRow, "RefreshButton", "更新");
             UIFactory.SetLayoutElement(refreshButton.Component.gameObject, minWidth: 65, flexibleWidth: 0);
             refreshButton.OnClick += UpdateTree;
 
             GameObject refreshToggle = UIFactory.CreateToggle(refreshRow, "RefreshToggle", out Toggle toggle, out Text text);
             UIFactory.SetLayoutElement(refreshToggle, flexibleWidth: 9999);
-            text.text = "Auto-update (1 second)";
+            text.text = "自动更新 (1 second)";
             text.alignment = TextAnchor.MiddleLeft;
             text.color = Color.white;
             text.fontSize = 12;
@@ -238,10 +238,10 @@ namespace UnityExplorer.ObjectExplorer
             GameObject labelsRow = UIFactory.CreateHorizontalGroup(toolbar, "LabelsRow", true, true, true, true, 2, new Vector4(2, 2, 2, 2));
             UIFactory.SetLayoutElement(labelsRow, minHeight: 30, flexibleHeight: 0);
 
-            Text nameLabel = UIFactory.CreateLabel(labelsRow, "NameLabel", "Name", TextAnchor.MiddleLeft, color: Color.grey);
+            Text nameLabel = UIFactory.CreateLabel(labelsRow, "NameLabel", "名称", TextAnchor.MiddleLeft, color: Color.grey);
             UIFactory.SetLayoutElement(nameLabel.gameObject, flexibleWidth: 9999, minHeight: 25);
 
-            Text indexLabel = UIFactory.CreateLabel(labelsRow, "IndexLabel", "Sibling Index", TextAnchor.MiddleLeft, fontSize: 12, color: Color.grey);
+            Text indexLabel = UIFactory.CreateLabel(labelsRow, "IndexLabel", "Sibling 索引", TextAnchor.MiddleLeft, fontSize: 12, color: Color.grey);
             UIFactory.SetLayoutElement(indexLabel.gameObject, minWidth: 100, flexibleWidth: 0, minHeight: 25);
 
             // Transform Tree
@@ -278,7 +278,7 @@ namespace UnityExplorer.ObjectExplorer
             this.sceneDropdown.value = 0;
         }
 
-        private const string DEFAULT_LOAD_TEXT = "[Select a scene]";
+        private const string DEFAULT_LOAD_TEXT = "[请选择一个场景]";
 
         private void RefreshSceneLoaderOptions(string filter)
         {
@@ -324,12 +324,12 @@ namespace UnityExplorer.ObjectExplorer
 
                     // Title
 
-                    Text loaderTitle = UIFactory.CreateLabel(sceneLoaderObj, "SceneLoaderLabel", "Scene Loader", TextAnchor.MiddleLeft, Color.white, true, 14);
+                    Text loaderTitle = UIFactory.CreateLabel(sceneLoaderObj, "SceneLoaderLabel", "场景加载器", TextAnchor.MiddleLeft, Color.white, true, 14);
                     UIFactory.SetLayoutElement(loaderTitle.gameObject, minHeight: 25, flexibleHeight: 0);
 
                     // Search filter
 
-                    InputFieldRef searchFilterObj = UIFactory.CreateInputField(sceneLoaderObj, "SearchFilterInput", "Filter scene names...");
+                    InputFieldRef searchFilterObj = UIFactory.CreateInputField(sceneLoaderObj, "SearchFilterInput", "过滤场景名称...");
                     UIFactory.SetLayoutElement(searchFilterObj.UIRoot, minHeight: 25, flexibleHeight: 0);
                     searchFilterObj.OnValueChanged += RefreshSceneLoaderOptions;
 
@@ -344,14 +344,14 @@ namespace UnityExplorer.ObjectExplorer
 
                     GameObject buttonRow = UIFactory.CreateHorizontalGroup(sceneLoaderObj, "LoadButtons", true, true, true, true, 4);
 
-                    loadButton = UIFactory.CreateButton(buttonRow, "LoadSceneButton", "Load (Single)", new Color(0.1f, 0.3f, 0.3f));
+                    loadButton = UIFactory.CreateButton(buttonRow, "LoadSceneButton", "加载 (Single)", new Color(0.1f, 0.3f, 0.3f));
                     UIFactory.SetLayoutElement(loadButton.Component.gameObject, minHeight: 25, minWidth: 150);
                     loadButton.OnClick += () =>
                     {
                         TryLoadScene(LoadSceneMode.Single, allSceneDropdown);
                     };
 
-                    loadAdditiveButton = UIFactory.CreateButton(buttonRow, "LoadSceneButton", "Load (Additive)", new Color(0.1f, 0.3f, 0.3f));
+                    loadAdditiveButton = UIFactory.CreateButton(buttonRow, "LoadSceneButton", "加载 (Additive)", new Color(0.1f, 0.3f, 0.3f));
                     UIFactory.SetLayoutElement(loadAdditiveButton.Component.gameObject, minHeight: 25, minWidth: 150);
                     loadAdditiveButton.OnClick += () =>
                     {

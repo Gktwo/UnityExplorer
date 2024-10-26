@@ -72,7 +72,7 @@ internal class TimeScaleWidget
 
     void ConstructUI(GameObject parent)
     {
-        Text timeLabel = UIFactory.CreateLabel(parent, "TimeLabel", "Time:", TextAnchor.MiddleRight, Color.grey);
+        Text timeLabel = UIFactory.CreateLabel(parent, "TimeLabel", "时间倍率:", TextAnchor.MiddleRight, Color.grey);
         UIFactory.SetLayoutElement(timeLabel.gameObject, minHeight: 25, minWidth: 35);
 
         timeInput = UIFactory.CreateInputField(parent, "TimeInput", "timeScale");
@@ -82,7 +82,7 @@ internal class TimeScaleWidget
         timeInput.Text = string.Empty;
         timeInput.Text = Time.timeScale.ToString();
 
-        lockBtn = UIFactory.CreateButton(parent, "PauseButton", "Lock", new Color(0.2f, 0.2f, 0.2f));
+        lockBtn = UIFactory.CreateButton(parent, "PauseButton", "锁定", new Color(0.2f, 0.2f, 0.2f));
         UIFactory.SetLayoutElement(lockBtn.Component.gameObject, minHeight: 25, minWidth: 50);
         lockBtn.OnClick += OnPauseButtonClicked;
     }

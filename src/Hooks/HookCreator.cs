@@ -244,16 +244,17 @@ namespace UnityExplorer.Hooks
                 new Vector4(2, 2, 2, 2), new Color(0.2f, 0.2f, 0.2f));
             UIFactory.SetLayoutElement(addRow, minHeight: 25, flexibleHeight: 0, flexibleWidth: 9999);
 
-            ClassSelectorInputField = UIFactory.CreateInputField(addRow, "ClassInput", "Enter a class to add hooks to...");
+            ClassSelectorInputField = UIFactory.CreateInputField(addRow, "ClassInput", "E输入一个类以添加钩子...");
             UIFactory.SetLayoutElement(ClassSelectorInputField.Component.gameObject, flexibleWidth: 9999, minHeight: 25, flexibleHeight: 0);
             TypeCompleter completer = new(typeof(object), ClassSelectorInputField, true, false, true);
             //completer.AllTypes = true;
 
-            ButtonRef addButton = UIFactory.CreateButton(addRow, "AddButton", "View Methods");
+            ButtonRef addButton = UIFactory.CreateButton(addRow, "AddButton", "查看函数");
             UIFactory.SetLayoutElement(addButton.Component.gameObject, minWidth: 110, minHeight: 25);
             addButton.OnClick += () => { OnClassSelectedForHooks(ClassSelectorInputField.Text); };
 
-            AddHooksLabel = UIFactory.CreateLabel(AddHooksRoot, "AddLabel", "Choose a class to begin...", TextAnchor.MiddleCenter);
+            AddHooksLabel = UIFactory.CreateLabel(AddHooksRoot, "AddLabel", "选择一个类开始...", TextAnchor.MiddleCenter);
+            AddHooksLabel = UIFactory.CreateLabel(AddHooksRoot, "AddLabel", "选择一个类开始...", TextAnchor.MiddleCenter);
             UIFactory.SetLayoutElement(AddHooksLabel.gameObject, minHeight: 30, minWidth: 100, flexibleWidth: 9999);
 
             AddHooksMethodFilterInput = UIFactory.CreateInputField(AddHooksRoot, "FilterInputField", "Filter method names...");

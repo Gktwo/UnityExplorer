@@ -78,7 +78,7 @@ namespace UnityExplorer.Hooks
             UIFactory.SetLayoutElement(UIRoot, preferredHeight: 150, flexibleHeight: 0, flexibleWidth: 9999);
             UIFactory.SetLayoutGroup<VerticalLayoutGroup>(UIRoot, true, true, true, true);
 
-            Text hooksLabel = UIFactory.CreateLabel(UIRoot, "HooksLabel", "Current Hooks", TextAnchor.MiddleCenter);
+            Text hooksLabel = UIFactory.CreateLabel(UIRoot, "HooksLabel", "当前钩子", TextAnchor.MiddleCenter);
             UIFactory.SetLayoutElement(hooksLabel.gameObject, minHeight: 30, flexibleWidth: 9999);
 
             HooksScrollPool = UIFactory.CreateScrollPool<HookCell>(UIRoot, "HooksScrollPool",

@@ -195,7 +195,7 @@ namespace UnityExplorer.Inspectors
 
             Text title = UIFactory.CreateLabel(inspectContent,
                 "InspectLabel",
-                "<b>Mouse Inspector</b> (press <b>ESC</b> to cancel)",
+                "<b>光标检查器</b> (press <b>ESC</b> to cancel)",
                 TextAnchor.MiddleCenter);
             UIFactory.SetLayoutElement(title.gameObject, flexibleWidth: 9999);
 

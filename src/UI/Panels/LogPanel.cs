@@ -19,7 +19,7 @@ namespace UnityExplorer.UI.Panels
         private static readonly List<LogInfo> Logs = new();
         private static string CurrentStreamPath;
 
-        public override string Name => "Log";
+        public override string Name => "日志";
         public override UIManager.Panels PanelType => UIManager.Panels.ConsoleLog;
 
         public override int MinWidth => 350;
@@ -154,19 +154,19 @@ namespace UnityExplorer.UI.Panels
             UIFactory.SetLayoutElement(optionsRow, minHeight: 25, flexibleWidth: 9999);
             UIFactory.SetLayoutGroup<HorizontalLayoutGroup>(optionsRow, false, false, true, true, 5, 2, 2, 2, 2);
 
-            ButtonRef clearButton = UIFactory.CreateButton(optionsRow, "ClearButton", "Clear", new Color(0.2f, 0.2f, 0.2f));
+            ButtonRef clearButton = UIFactory.CreateButton(optionsRow, "ClearButton", "清除", new Color(0.2f, 0.2f, 0.2f));
             UIFactory.SetLayoutElement(clearButton.Component.gameObject, minHeight: 23, flexibleHeight: 0, minWidth: 60);
             clearButton.OnClick += ClearLogs;
             clearButton.Component.transform.SetSiblingIndex(1);
 
-            ButtonRef fileButton = UIFactory.CreateButton(optionsRow, "FileButton", "Open Log File", new Color(0.2f, 0.2f, 0.2f));
+            ButtonRef fileButton = UIFactory.CreateButton(optionsRow, "FileButton", "打开日志文件", new Color(0.2f, 0.2f, 0.2f));
             UIFactory.SetLayoutElement(fileButton.Component.gameObject, minHeight: 23, flexibleHeight: 0, minWidth: 100);
             fileButton.OnClick += OpenLogFile;
             fileButton.Component.transform.SetSiblingIndex(2);
 
             GameObject unityToggle = UIFactory.CreateToggle(optionsRow, "UnityLogToggle", out Toggle toggle, out Text toggleText);
             UIFactory.SetLayoutElement(unityToggle, minHeight: 25, minWidth: 150);
-            toggleText.text = "Log Unity Debug?";
+            toggleText.text = "显示引擎log?";
             toggle.isOn = ConfigManager.Log_Unity_Debug.Value;
             ConfigManager.Log_Unity_Debug.OnValueChanged += (bool val) => toggle.isOn = val;
             toggle.onValueChanged.AddListener((bool val) => ConfigManager.Log_Unity_Debug.Value = val);
